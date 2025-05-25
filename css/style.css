@@ -9,16 +9,17 @@
 
 body {
   font-family: 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'メイリオ', sans-serif;
-  line-height: 1.8;
+  line-height: 1.7;
   color: #3a2e1f; /* ややブラウン寄りで高級感 */
   background-color: #fcf9f0; /* 柔らかい背景色 */
+  font-size: 16px; /* Base font size for mobile first */
 }
 
 /* 見出し用 */
 h1, h2, h3 {
   font-family: 'Noto Serif JP', 'Hiragino Mincho ProN', '游明朝', serif;
   color: #8c6d3f; /* ゴールド寄りのブラウン */
-  font-weight: 600;
+  font-weight: 700;
   line-height: 1.4;
 }
 
@@ -135,7 +136,7 @@ h1, h2, h3 {
 }
 .case-desc {
   text-align: center;
-  font-size: 16px;
+  font-size: 15px;
   line-height: 1.8;
   margin-bottom: 10px;
 }
@@ -438,12 +439,110 @@ h1, h2, h3 {
 }
 
 @media (max-width: 700px) {
-  .steps-slider { max-width: 98vw; }
-  .step-arrow-right { right: 0; }
-  .step-arrow-left { left: 0; }
-  .step-content { flex-direction: column; gap: 10px; }
-  .step-img { margin-left: 0; }
+  .steps-slider { 
+    max-width: 98vw;
+    padding: 20px 10px;
+    min-height: 300px;
+  }
+  
+  .step-arrow-right { 
+    right: 0;
+    transform: translateY(-50%) scale(0.8);
+  }
+  
+  .step-arrow-left { 
+    left: 0;
+    transform: translateY(-50%) scale(0.8);
+  }
+  
+  .step-content { 
+    flex-direction: column;
+    gap: 10px;
+    padding: 0 10px;
+  }
+  
+  .step-img { 
+    margin-left: 0;
+    width: 120px;
+    height: 120px;
+  }
+  
+  .step-card {
+    padding: 20px 15px;
+    min-height: 280px;
+  }
+  
+  .step-label {
+    font-size: 1em;
+    padding: 5px 15px;
+    margin-bottom: 15px;
+  }
+  
+  .step-title {
+    font-size: 1.1em;
+    margin-bottom: 8px;
+  }
+  
+  .step-desc {
+    font-size: 0.95em;
+    line-height: 1.6;
+  }
+  
+  .step-dots {
+    margin-top: 20px;
+  }
+  
+  .step-dot {
+    width: 12px;
+    height: 12px;
+    margin: 0 5px;
+  }
 }
+
+@media (max-width: 480px) {
+  .steps-slider {
+    padding: 15px 5px;
+    min-height: 280px;
+  }
+  
+  .step-card {
+    padding: 15px 10px;
+    min-height: 260px;
+  }
+  
+  .step-label {
+    font-size: 0.9em;
+    padding: 4px 12px;
+    margin-bottom: 12px;
+  }
+  
+  .step-title {
+    font-size: 1em;
+    margin-bottom: 6px;
+  }
+  
+  .step-desc {
+    font-size: 0.9em;
+  }
+  
+  .step-img {
+    width: 100px;
+    height: 100px;
+  }
+  
+  .step-arrow {
+    width: 36px;
+    height: 36px;
+    font-size: 1.5em;
+  }
+  
+  .step-dot {
+    width: 10px;
+    height: 10px;
+    margin: 0 4px;
+  }
+}
+
 .footnote {
   font-size: 14px;
   color: #777;
@@ -547,7 +646,37 @@ h1, h2, h3 {
 /* レスポンシブデザイン */
 @media screen and (max-width: 768px) {
     .tab-menu {
-        flex-wrap: wrap;
+        flex-wrap: nowrap;
+        gap: 4px;
+        padding: 8px 4px;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none; /* Firefox */
+        -ms-overflow-style: none; /* IE and Edge */
+    }
+    
+    .tab-menu::-webkit-scrollbar {
+        display: none; /* Chrome, Safari, Opera */
+    }
+    
+    .tab-btn {
+        font-size: 0.9em;
+        margin: 0;
+        padding: 8px 12px;
+        white-space: nowrap;
+        flex-shrink: 0;
+    }
+    
+    .tab-content {
+        padding: 20px; /* Adjusted padding */
+    }
+    
+    .case-images img {
+        max-width: 100%; /* Ensure image fits within container */
+    }
+    
+    .case-desc {
+        font-size: 15px; /* Adjusted font size */
     }
     
     .before-after {
@@ -570,16 +699,215 @@ h1, h2, h3 {
     }
     
     .feature-circles {
-        flex-direction: column;
-        align-items: center;
-        gap: 20px;
+        flex-direction: row;
+        justify-content: center;
+        gap: 10px;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        padding: 10px 0;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+    }
+    
+    .feature-circles::-webkit-scrollbar {
+        display: none;
+    }
+    
+    .feature-circle {
+        width: 100px;
+        height: 100px;
+        flex-shrink: 0;
+    }
+    
+    .circle-inner {
+        width: 80px;
+        height: 80px;
+        font-size: 14px;
+    }
+    
+    .voice-title-ja {
+        font-size: 1.8em; /* Adjusted voice title size */
     }
     
     .feature-box {
         padding: 20px 15px;
+        font-size: 16px; /* Adjusted font size */
+    }
+    
+    .price-list {
+        gap: 16px; /* Adjusted gap */
+    }
+    
+    .price-item {
+        padding: 24px; /* Adjusted padding */
+    }
+    
+    .price-name {
+        font-size: 1.2em; /* Adjusted font size */
+    }
+    
+    .price-amount {
+        font-size: 1.8em; /* Adjusted font size */
+    }
+    
+    .price-features li {
+        font-size: 0.95em; /* Adjusted font size */
+        padding-left: 16px; /* Adjusted padding */
+    }
+    
+    .store-content {
+        flex-direction: column;
+    }
+    
+    .store-info, .store-map {
+        width: 100%;
+        min-width: unset; /* Allow shrinking */
+    }
+    
+    .store-info-item h3 {
+        font-size: 1.1em; /* Adjusted font size */
+    }
+    
+    .store-info-item p {
+        font-size: 1em; /* Adjusted font size */
+    }
+    
+    .sns-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .sns-button {
+        width: 100%;
+        max-width: 300px;
+        justify-content: center;
+        font-size: 1em; /* Adjusted font size */
+        padding: 10px 20px; /* Adjusted padding */
     }
 }
 
+@media (max-width: 600px) {
+    body {
+        font-size: 15px; /* Smaller base font size */
+    }
+    
+    h1, h2, h3 {
+        font-size: 1.6em; /* Adjusted heading size */
+    }
+    
+    .feature-number {
+        font-size: 60px; /* Smaller feature number */
+        top: -15px;
+        left: 15px;
+    }
+    
+    .feature-title {
+        font-size: 20px; /* Smaller feature title */
+    }
+    
+    .feature-circles {
+        gap: 8px;
+    }
+    
+    .feature-circle {
+        width: 90px;
+        height: 90px;
+    }
+    
+    .circle-inner {
+        width: 70px;
+        height: 70px;
+        font-size: 13px;
+    }
+    
+    .voice-title-ja {
+        font-size: 1.8em; /* Adjusted voice title size */
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        font-size: 14px; /* Even smaller base font size */
+    }
+    
+    h1, h2, h3 {
+        font-size: 1.4em; /* Adjusted heading size */
+    }
+    
+    .voice-title-ja {
+        font-size: 1.5em; /* Adjusted voice title size */
+    }
+
+    .before-after-item {
+        padding: 20px 15px; /* Adjusted padding for smaller screens */
+    }
+
+    .before-after-images {
+        flex-direction: column; /* Ensure vertical stacking */
+        gap: 10px; /* Smaller gap */
+    }
+
+    .image-box img {
+        max-width: 100%; /* Ensure image fits container */
+    }
+
+    .procedure-info-container {
+        flex-direction: column; /* Ensure vertical stacking */
+        gap: 10px; /* Smaller gap */
+        padding: 0 10px; /* Adjusted padding */
+    }
+
+    .procedure-info-item {
+        min-width: unset; /* Allow shrinking */
+        padding: 10px 15px; /* Adjusted padding */
+    }
+
+    .procedure-info-item .info-label,
+    .procedure-info-item .info-text {
+        font-size: 1em; /* Adjusted font size */
+    }
+
+    .contact-links {
+        padding: 24px 12px; /* Adjusted padding */
+    }
+
+    .contact-btn, .contact-btn-secondary {
+        padding: 12px 15px; /* Adjusted padding */
+    }
+
+    .contact-tel-box {
+        padding: 12px; /* Adjusted padding */
+    }
+
+    .contact-tel-row {
+        flex-direction: column;
+        gap: 8px; /* Smaller gap */
+    }
+
+    .contact-tel-info {
+        padding: 6px 10px; /* Adjusted padding */
+    }
+
+    .contact-tel-number {
+        font-size: 1.2em; /* Adjusted font size */
+    }
+
+    .feature-circles {
+        gap: 6px;
+    }
+    
+    .feature-circle {
+        width: 80px;
+        height: 80px;
+    }
+    
+    .circle-inner {
+        width: 60px;
+        height: 60px;
+        font-size: 12px;
+    }
+}
 
 /* --- CTA/Contact Section --- */
 .contact-section {
@@ -1022,11 +1350,13 @@ h1, h2, h3 {
 @media (max-width: 900px) {
   .voice-list {
     gap: 18px;
+    justify-content: center;
+    padding: 0 10px;
   }
   .voice-card {
     width: 100%;
     min-width: 0;
-    max-width: 95vw;
+    max-width: 100%;
     padding: 24px 10px 18px 10px;
   }
 }
@@ -1038,11 +1368,12 @@ h1, h2, h3 {
     flex-direction: column;
     gap: 16px;
     align-items: center;
+    padding: 0;
   }
   .voice-card {
     width: 98vw;
     min-width: 0;
-    max-width: 99vw;
+    max-width: 100%;
     padding: 18px 10px 14px 10px;
   }
   .voice-title-ja {
@@ -1177,20 +1508,56 @@ h1, h2, h3 {
 
 @media (max-width: 700px) {
   .before-after-images {
-      flex-direction: column;
-      gap: 16px;
-      align-items: center;
+      flex-direction: row;
+      gap: 10px;
+      justify-content: center;
+      overflow-x: auto;
+      padding: 10px 0;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
   }
+  
+  .before-after-images::-webkit-scrollbar {
+      display: none;
+  }
+  
+  .before, .after {
+      flex-shrink: 0;
+      width: 45%;
+  }
+  
+  .image-box {
+      width: 100%;
+  }
+  
   .image-box img {
-      max-width: 90vw;
+      max-width: 100%;
+      height: auto;
   }
+  
   .procedure-info-container {
       flex-direction: column;
       align-items: center;
   }
+  
   .procedure-info-item {
       width: 100%;
       max-width: 400px;
+  }
+}
+
+@media (max-width: 480px) {
+  .before-after-images {
+    gap: 8px;
+  }
+  
+  .before, .after {
+    width: 48%;
+  }
+  
+  .before-after-img-label {
+    font-size: 0.9em;
   }
 }
 
